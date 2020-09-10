@@ -8,6 +8,7 @@
 ;;; Code:
 
 (require 'init-const)
+(require 'init-funcs)
 
 ;; Title
 (setq frame-title-format '("Libra Emacs - %b")

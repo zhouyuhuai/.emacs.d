@@ -12,7 +12,12 @@
 (defun icons-displayable-p ()
   "Return non-nil if `all-the-icons' is displayable."
   (if (display-graphic-p)
-       (require 'all-the-icons nil t)))
+      (require 'all-the-icons nil t)))
+
+;; Font
+(defun font-installed-p (font-name)
+  "Check if font with FONT-NAME is available."
+  (find-font (font-spec :name font-name)))
 
 (provide 'init-funcs)
 
