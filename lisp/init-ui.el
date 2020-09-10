@@ -17,6 +17,21 @@
 (setq frame-inhibit-implied-resize t
       frame-resize-pixelwise t)
 
+;; Theme
+(use-package doom-themes
+  :init
+  (setq doom-themes-enabel-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-vibrant t)
+  :custom-face
+  (doom-modeline-buffer-file ((t (:inherit (mode-line bold)))))
+  :config
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable customized theme
+  (doom-themes-treemacs-config))
+
 ;; Mode-line
 (use-package doom-modeline
   :custom
