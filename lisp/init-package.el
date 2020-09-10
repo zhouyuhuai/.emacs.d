@@ -16,8 +16,8 @@
 (advice-add 'package--save-selected-packages :override #'my-save-selected-packages)
 
 ;; Set ELPA packages
-(setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
-			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+(setq package-archives '(("gnu" . "http://mirrors.cloud.tencent.com/elpa/gnu/")
+			 ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")))
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
