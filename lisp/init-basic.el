@@ -18,7 +18,10 @@
 ;; Explicitly set the prefered coding systems to avoid annoying prompt
 ;; from emacs (especially on Microsoft Windows)
 (prefer-coding-system 'utf-8)
-(setq locale-coding-system 'utf-8)
+(if sys/win32p
+  (setq locale-coding-system 'gb18030)
+  (setq locale-coding-system 'utf-8))
+
 
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -41,11 +44,9 @@
 
 ;; History
 (use-package saveplace
-  :ensure nil
   :hook (after-init . save-place-mode))
 
 (use-package recentf
-  :ensure nil
   :bind (("C-x C-r" . recentf-open-files))
   :hook (after-init . recentf-mode)
   :init (setq recentf-max-saved-items 300
@@ -58,7 +59,6 @@
   :config (push (expand-file-name recentf-save-file) recentf-exclude))
 
 (use-package savehist
-  :ensure nil
   :hook (after-init . savehist-mode)
   :init (setq enable-recursive-minibuffers t ; Allow commands in minibuffers
               history-length 1000
@@ -70,7 +70,7 @@
               savehist-autosave-interval 300))
 
 (use-package simple
-  :ensure nil
+  :straight nil
   :hook ((after-init . size-indication-mode)
          (text-mode . visual-line-mode)
          ((prog-mode markdown-mode conf-mode) . enable-trailing-whitespace))
@@ -89,16 +89,16 @@
     (setq show-trailing-whitespace t)
     (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)))
 
+(display-time-mode t)
 (use-package time
-  :ensure nil
   :unless (display-graphic-p)
   :hook (after-init . display-time-mode)
-  :init (setq display-time-24hr-format t
+  :init (setq setq display-time-default-load-average nil
+              display-time-24hr-format t
               display-time-day-and-date t))
 
 ;; Large file
 (use-package so-long
-  :ensure nil
   :hook (after-init . global-so-long-mode)
   :config (setq so-long-threshold 400))
 
