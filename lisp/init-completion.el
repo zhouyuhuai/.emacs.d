@@ -14,7 +14,23 @@
   (use-package swiper :defer t)
   (use-package counsel)
   (use-package ivy-avy)
-  :bind (("M-x" . counsel-M-x)
+  :config
+  (setq ivy-sort-max-size 7500)
+
+  ;; Icons
+  (use-package all-the-icons-ivy
+    :after ivy
+    :config
+    (setq all-the-icons-ivy-buffer-commands nil)
+    (all-the-icons-ivy-setup))
+
+  ;; Better sorting and filtering
+  (use-package prescient
+    :commands prescient-persist-mode)
+
+  (use-package ivy-prescient
+    :commands ivy-prescient-re-builder)
+    :bind (("M-x" . counsel-M-x)
 
          ("C-s" . swiper-isearch)
          ("C-r" . swiper-isearch-backward)
@@ -36,6 +52,10 @@
   :custom
   (ivy-use-virtual-buffers t))
 
+(use-package ivy-rich
+  :config
+  (setq ivy-rich-path-style 'abbrev)
+  (ivy-rich-mode 1))
 
 ;; Snails
 (when (display-graphic-p)

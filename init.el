@@ -36,6 +36,9 @@
 
 (require 'init-company)
 
+(require 'init-utils)
+
+(require 'init-vcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
