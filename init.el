@@ -29,7 +29,10 @@
 
 (require 'init-ui)
 
-(require 'init-helm)
+(require 'init-edit)
+
+;;(require 'init-helm)
+(require 'init-completion)
 
 (require 'init-company)
 
