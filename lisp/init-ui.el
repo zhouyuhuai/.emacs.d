@@ -46,6 +46,14 @@
     (setq doom-modeline--default-format mode-line-format)
     (setq-default mode-line-format nil)))
 
+;; Nyancat
+(use-package nyan-mode
+  :after doom-modeline
+  :init
+  (setq nyan-animate-nyancat t
+        nyan-wavy-trail t)
+  (nyan-mode t))
+
 (use-package hide-mode-line
   :hook (((completion-list-mode
            completion-in-region-mode
