@@ -13,12 +13,13 @@
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
-  :bind (:map company-mode-map
-         ([remap completion-at-point] . company-complete)
+  :bind (("M-/" . company-complete)
+         ("C-M-i" . company-complete)
+         :map company-mode-map
          ("<backtab>" . company-yasnippet)
          :map company-active-map
-         ("C-/" . counsel-company)
          ("C-s" . company-filter-candidates)
+         ("C-/" . counsel-company)
          ("C-p" . company-select-previous)
          ("C-n" . company-select-next)
          ("<tab>" . company-complete-common-or-cycle)
