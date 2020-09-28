@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ;;
-;; Centaur Emacs - A Fancy and Fast Emacs Configuration.
+;; Libra Emacs - A Fancy and Fast Emacs Configuration.
 ;;
 
 ;;; Code:
@@ -23,21 +23,15 @@
 
 ;; Packages
 (require 'init-package)
-
 (require 'init-basic)
-
-
+(require 'init-evil)
+(require 'init-general)
 (require 'init-ui)
-
 (require 'init-edit)
-
 ;;(require 'init-helm)
 (require 'init-completion)
-
 (require 'init-company)
-
 (require 'init-utils)
-
 (require 'init-vcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
