@@ -30,7 +30,10 @@
   ;; Disable vc for remote files, and `diff-hl' won't work as expected.
   (setq vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
                                      vc-ignore-dir-regexp
-                                     tramp-file-name-regexp)))
+                                     tramp-file-name-regexp))
+  :custom
+  (vc-follow-symlinks t)
+  (vc-handled-backends '(Git)))
 
 ;; Highlight uncommited changes using git
 (use-package diff-hl
