@@ -13,11 +13,12 @@
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
-  :bind (("M-/" . company-complete)
-         ("C-M-i" . company-complete)
-         :map company-mode-map
+  :bind (:map company-mode-map
+         ([remap completion-at-point] . company-complete)
          ("<backtab>" . company-yasnippet)
          :map company-active-map
+         ("C-/" . counsel-company)
+         ("C-s" . company-filter-candidates)
          ("C-p" . company-select-previous)
          ("C-n" . company-select-next)
          ("<tab>" . company-complete-common-or-cycle)
@@ -28,8 +29,9 @@
   :hook (after-init . global-company-mode)
   :init
   (setq company-tooltip-align-annotations t
-        company-tooltip-limit 12
+        company-tooltip-limit 10
         company-idle-delay 0
+        company-show-numbers t
         company-echo-delay (if (display-graphic-p) nil 0)
         company-minimum-prefix-length 1
         company-require-match nil
@@ -37,8 +39,9 @@
         company-dabbrev-downcase nil
         company-global-modes '(not erc-mode message-mode help-mode
                                    gud-mode eshell-mode shell-mode)
-        company-frontends '(company-pseudo-tooltip-frontend
-                            company-echo-metadata-frontend))
+        company-backends '((company-capf :with company-yasnippet)
+                           (company-dabbrev-code company-keywords company-files)
+                           company-dabbrev))
 
   (defun my-company-yasnippet ()
     "Hide the current completeions and show snippets."

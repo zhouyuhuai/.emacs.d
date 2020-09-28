@@ -43,7 +43,19 @@
     "gg" 'magit-status
     "gG" 'magit-status-here
     "gi" 'magit-init
-    "gr" 'magit-rebase-interactive))
+    "gr" 'magit-rebase-interactive
+
+    ;; search
+    "s" '(:ignore t :which-key "search")
+    "sa" 'swiper-all
+    "sb" 'swiper
+    "sg" 'counsel-rg
+    "si" 'imenu
+    "sj" 'evil-show-jumps
+    "sm" 'evil-show-marks
+    "sr" 'evil-show-registers
+    "ss" 'swiper-isearch
+    "sS" 'swiper-isearch-thing-at-point))
 
 (provide 'init-general)
 
