@@ -25,7 +25,6 @@
 
 ;; NB `diff-hl' depends on `vc'
 (use-package vc
-  :ensure nil
   :config
   ;; Disable vc for remote files, and `diff-hl' won't work as expected.
   (setq vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
@@ -47,7 +46,6 @@
 
 ;; Pop up last commit info of current line
 (use-package git-messenger
-  :ensure t
   :bind (:map vc-prefix-map
          ("p" . git-messenger:popup-message)
          :map git-messenger-map
