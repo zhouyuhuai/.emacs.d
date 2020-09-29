@@ -138,6 +138,9 @@
 (show-paren-mode t)
 
 ;; Fonts
+;; No gc for font caches
+(setq inhibit-compacting-font-caches t)
+
 (when (display-graphic-p)
   ;; Set default font
   (cl-loop for font in '("等距更纱黑体 SC" "SF Mono" "Hack" "Source Code Pro" "Fira Code"
@@ -145,7 +148,7 @@
            when (font-installed-p font)
            return (set-face-attribute 'default nil
                                       :font font
-                                      :height (cond (sys/win32p 110)
+                                      :height (cond (sys/win32p 100)
                                                     (t 100))))
 
   ;; Specify font for all unicode characters

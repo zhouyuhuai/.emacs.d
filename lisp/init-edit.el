@@ -25,6 +25,15 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+;; Open files as another user
+(unless sys/win32p
+  (use-package sudo-edit))
+
+;; Narrow/Widen
+(use-package fancy-narrow
+  :diminish
+  :hook (after-init . fancy-narrow-mode))
+
 (provide 'init-edit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

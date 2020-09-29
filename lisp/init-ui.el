@@ -35,16 +35,23 @@
 
 ;; Mode-line
 (use-package doom-modeline
-  :custom
-  (doom-modeline-icon (display-graphic-p))
-  (doom-modeline-minor-modes t)
-  (doom-modeline-unicode-fallback t)
-  (doom-modeline-mu4e nil)
-  :hook (window-setup . doom-modeline-mode)
+  :hook (after-init . doom-modeline-mode)
+  :hook (doom-modeline-mode . size-indication-mode)
+  :hook (doom-modeline-mode . column-number-mode)
   :init
   (unless after-init-time
-    (setq doom-modeline--default-format mode-line-format)
-    (setq-default mode-line-format nil)))
+    ;; prevent flash of unstyled modeline at startup
+    (setq-default mode-line-format nil))
+;; We display project info in the modeline ourselves
+  (setq projectile-dynamic-mode-line nil)
+  ;; Set these early so they don't trigger variable watchers
+  (setq doom-modeline-bar-width 3
+        doom-modeline-github nil
+        doom-modeline-mu4e nil
+        doom-modeline-persp-name nil
+        doom-modeline-minor-modes t
+        doom-modeline-icon t
+        doom-modeline-buffer-file-name-style 'relative-from-project))
 
 ;; Nyancat
 (use-package nyan-mode
