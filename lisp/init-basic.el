@@ -90,13 +90,13 @@
     (setq show-trailing-whitespace t)
     (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)))
 
-(display-time-mode t)
-(use-package time
-  :unless (display-graphic-p)
-  :hook (after-init . display-time-mode)
-  :init (setq setq display-time-default-load-average nil
-              display-time-24hr-format t
-              display-time-day-and-date t))
+;; (use-package time
+;;   :unless (display-graphic-p)
+;;   :hook (after-init . display-time-mode)
+;;   :init (setq setq display-time-default-load-average nil
+;;               display-time-24hr-format t
+;;               display-time-day-and-date t))
+;; (display-time-mode t)
 
 ;; Large file
 (use-package so-long
@@ -140,7 +140,7 @@
 ;; Fonts
 (when (display-graphic-p)
   ;; Set default font
-  (cl-loop for font in '("SF Mono" "Hack" "Source Code Pro" "Fira Code"
+  (cl-loop for font in '("等距更纱黑体 SC" "SF Mono" "Hack" "Source Code Pro" "Fira Code"
                          "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas")
            when (font-installed-p font)
            return (set-face-attribute 'default nil
@@ -154,7 +154,7 @@
            return(set-fontset-font t 'unicode font nil 'prepend))
 
   ;; Specify font for Chinese characters
-  (cl-loop for font in '("WenQuanYi Micro Hei" "Microsoft Yahei")
+  (cl-loop for font in '("等距更纱黑体 SC" "WenQuanYi Micro Hei" "Microsoft Yahei")
            when (font-installed-p font)
            return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 

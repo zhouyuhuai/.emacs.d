@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+;; Automatically reload files was modified by external program
+(use-package autorevert
+  :ensure nil
+  :diminish
+  :hook (after-init . global-auto-revert-mode))
+
 ;; Automatic parenthesis pairing
 (use-package elec-pair
   :hook (after-init . electric-pair-mode)
@@ -15,6 +21,10 @@
 (use-package avy
   :defer t
   :bind (("C-:" . avy-goto-char)))
+
+;; Increase selected region by semantic units
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
 
 (provide 'init-edit)
 

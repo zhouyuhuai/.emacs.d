@@ -31,6 +31,7 @@
 ;;(require 'init-helm)
 (require 'init-completion)
 (require 'init-company)
+(require 'init-dev)
 (require 'init-utils)
 (require 'init-vcs)
 

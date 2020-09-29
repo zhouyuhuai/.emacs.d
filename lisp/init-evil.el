@@ -1,4 +1,11 @@
+;;; init-evil.el --- Bring vim back -*- lexical-binding: t -*-
 
+;;; Commentary:
+;;
+
+;;; Code:
+
+;; Vi
 (use-package evil
   :hook (after-init . evil-mode)
   :bind (:map evil-normal-state-map
@@ -26,3 +33,5 @@
   :after evil magit)
 
 (provide 'init-evil)
+
+;;; init-evil.el ends here
