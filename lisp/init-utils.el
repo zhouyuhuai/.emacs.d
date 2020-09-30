@@ -26,7 +26,7 @@
   :ensure t
   :hook (after-init . gcmh-mode)
   :custom
-  (gcmh-idle-delay 5)
+  (gcmh-idle-delay 10)
   (gcmh-high-cons-threshold (* 16 1024 1024))) ;; 16 MB
 
 (provide 'init-utils)
