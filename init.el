@@ -20,11 +20,15 @@
 ;; to skip the mtime checks on every *.elc file.
 (setq load-prefer-newer noninteractive)
 
+;; Increase the amount of data from the process
+;; `lsp' gains
+(setq read-process-output-max (* 1024 1024))
+
 ;; Load Path
 ;; Optimize: Force "lisp"" and "site-lisp" at the head to reduce the startup time.
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (dolist (dir '("lisp"))
+  (dolist (dir '("lisp" "lisp/lang"))
     (push (expand-file-name dir user-emacs-directory) load-path)))
 
 (advice-add #'package-initialize :after #'update-load-path)
