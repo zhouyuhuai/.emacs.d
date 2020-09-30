@@ -25,6 +25,11 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+;; Highlight current line
+(use-package hl-line
+  :straight nil
+  :hook (prog-mode . hl-line-mode))
+
 ;; Open files as another user
 (unless sys/win32p
   (use-package sudo-edit))
