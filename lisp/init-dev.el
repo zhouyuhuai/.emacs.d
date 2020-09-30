@@ -75,6 +75,7 @@
          ("\\.yml\\'"  . yaml-mode)))
 
 ;; TODO: require  language here
+(require 'init-csharp)
 
 (provide 'init-dev)
 
