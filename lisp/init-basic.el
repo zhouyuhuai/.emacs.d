@@ -146,7 +146,7 @@
            return (set-face-attribute 'default nil
                                       :font font
                                       :height (cond (sys/win32p 100)
-                                                    (t 100))))
+                                                    (t 110))))
 
   ;; Specify font for all unicode characters
   (cl-loop for font in '("Symbola" "Symbol")

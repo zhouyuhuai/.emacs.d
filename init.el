@@ -45,6 +45,7 @@
 (require 'init-edit)
 ;;(require 'init-helm)
 (require 'init-company)
+(require 'init-org)
 (require 'init-dev)
 (require 'init-utils)
 (require 'init-vcs)

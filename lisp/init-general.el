@@ -55,7 +55,21 @@
     "sm" 'evil-show-marks
     "sr" 'evil-show-registers
     "ss" 'swiper-isearch
-    "sS" 'swiper-isearch-thing-at-point))
+    "sS" 'swiper-isearch-thing-at-point)
+
+  (general-create-definer libra-org-leader-def
+    :prefix "SPC l"
+    :non-normal-prefix "M-m l")
+
+  (libra-org-leader-def
+    :states '(normal visual insert emacs)
+    :keymaps 'org-mode-map
+    "" '(:ignore t :wk "org")
+    "." 'counsel-org-goto
+    "/" 'counsel-org-goto-all)
+  :custom
+  (general-implicit-kbd t)
+  (general-override-auto-enable t))
 
 (provide 'init-general)
 
