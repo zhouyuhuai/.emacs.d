@@ -48,6 +48,7 @@
 (require 'init-lsp)
 (require 'init-org)
 (require 'init-utils)
+(require 'init-reader)
 (require 'init-vcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
