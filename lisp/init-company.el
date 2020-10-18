@@ -96,8 +96,8 @@
     :defines company-box-icons-all-the-icons
     :hook (company-mode . company-box-mode)
     :init (setq company-box-enable-icon (display-graphic-p)
-                  company-box-backends-colors nil
-                  company-box-highlight-prefix t)
+                company-box-backends-colors nil
+                company-box-highlight-prefix t)
     :config
     (with-no-warnings
       ;; Prettify icons

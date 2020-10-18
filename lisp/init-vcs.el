@@ -8,16 +8,20 @@
 
 ;;; Code:
 
-;; The Awesome git client
+;; The awesome git client
 (use-package magit
   :mode (("\\COMMIT_EDITMSG\\'" . text-mode)
          ("\\MERGE_MSG\\'" . text-mode))
+  :init (use-package magit-gitflow :hook (magit-mode . turn-on-magit-gitflow))
   :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch)
-         ("C-c M-g" . magit-file-popup))
-  :init
-  (setq magit-diff-refine-hunk t)
-  (use-package magit-gitflow :hook (magit-mode . turn-on-magit-gitflow)))
+         ("C-x M-g" . magit-dispatch))
+  :custom
+  ;; Supress message
+  (magit-no-message '("Turning on magit-auto-revert-mode..."))
+  (magit-save-repository-buffers 'dontask)
+  (magit-process-popup-time 30)
+  (magit-ediff-dwim-show-on-hunks t)
+  (magit-diff-refine-hunk t))
 
 ;; Todo integration
 (use-package magit-todos

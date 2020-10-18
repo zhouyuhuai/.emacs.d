@@ -38,6 +38,13 @@
       :hook (flycheck-mode . flycheck-pos-tip-mode)
       :config (setq flycheck-pos-tip-timeout 30))))
 
+;; Quickrun codes, including cpp. awesome!
+(use-package quickrun
+  :bind ("C-c x" . quickrun)
+  :custom
+  (quickrun-focus-p nil)
+  (quickrun-input-file-extension ".qr"))
+
 (use-package license
   :straight (:host github
              :repo "condy0919/license.el"

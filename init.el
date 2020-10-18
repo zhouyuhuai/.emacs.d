@@ -43,10 +43,10 @@
 (require 'init-general)
 (require 'init-ui)
 (require 'init-edit)
-;;(require 'init-helm)
 (require 'init-company)
-(require 'init-org)
 (require 'init-dev)
+(require 'init-lsp)
+(require 'init-org)
 (require 'init-utils)
 (require 'init-vcs)
 
