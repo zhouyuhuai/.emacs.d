@@ -29,6 +29,12 @@
   (gcmh-idle-delay 10)
   (gcmh-high-cons-threshold (* 16 1024 1024))) ;; 16 MB
 
+;; Nice writing
+(use-package olivetti
+  :diminish
+  :bind ("<f7>" . olivetti-mode)
+  :init (setq olivetti-body-width 0.618))
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

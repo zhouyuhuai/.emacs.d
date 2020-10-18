@@ -196,6 +196,10 @@
       :hook (global-linum-mode . hlinum-activate)
       :init (setq linum-highlight-in-all-buffersp t))))
 
+;; Use fixed pitch where it's sensible
+(use-package mixed-pitch
+  :diminish)
+
 ;; Suppress GUI features
 (setq use-file-dialog nil
       use-dialog-box nil
