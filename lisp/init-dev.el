@@ -81,6 +81,9 @@
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'"  . yaml-mode)))
 
+;; Treemacs.
+(require 'init-treemacs)
+
 ;; TODO: require  language here
 (require 'init-csharp)
 

@@ -58,6 +58,12 @@
   :custom
   (git-messenger:show-detail t)
   (git-messenger:use-magit-popup t))
+
+;; Git related modes
+(use-package gitattributes-mode)
+(use-package gitconfig-mode)
+(use-package gitignore-mode)
+
 (provide 'init-vcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
