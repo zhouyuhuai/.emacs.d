@@ -25,9 +25,10 @@
 
 ;; Todo integration
 (use-package magit-todos
-  :hook (magit-status-mode . magit-todos-mode))
+  :hook (magit-status-mode . magit-todos-mode)
+  :init (setq magit-todos-nice (if (executable-find "nice") t nil)))
 
-;; NB `diff-hl' depends on `vc'
+;; NB: `diff-hl' depends on `vc'
 (use-package vc
   :config
   ;; Disable vc for remote files, and `diff-hl' won't work as expected.
