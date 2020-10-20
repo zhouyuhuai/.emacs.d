@@ -81,6 +81,9 @@
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'"  . yaml-mode)))
 
+;; Projectile.
+(require 'init-projectile)
+
 ;; Treemacs.
 (require 'init-treemacs)
 

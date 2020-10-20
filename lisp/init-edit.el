@@ -39,6 +39,26 @@
   :diminish
   :hook (after-init . fancy-narrow-mode))
 
+;; Hiding structured data
+;;
+;; zm hide-all
+;; zr show-all
+;; za toggle-fold
+;; zo show-block
+;; zc hide-block
+(use-package hideshow
+  :hook (prog-mode . hs-minor-mode)
+  :config
+  (defconst hideshow-folded-face '((t (:inherit 'font-lock-comment-face :box t))))
+
+  (defun hideshow-folded-overlay-fn (ov)
+    (when (eq 'code (overlay-get ov 'hs))
+      (let* ((nlines (count-lines (overlay-start ov) (overlay-end ov)))
+             (info (format " ... [%d] " nlines)))
+        (overlay-put ov 'display (propertize info 'face hideshow-folded-face)))))
+
+  (setq hs-set-up-overlay 'hideshow-folded-overlay-fn))
+
 (provide 'init-edit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

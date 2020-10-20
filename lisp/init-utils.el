@@ -21,6 +21,9 @@
   :custom
   (which-key-idle-delay 0.5))
 
+(use-package which-key-posframe
+  :if (display-graphic-p))
+
 ;; GC optimization
 (use-package gcmh
   :ensure t
