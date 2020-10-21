@@ -5,6 +5,16 @@
 
 ;;; Code:
 
+(require 'init-custom)
+
+;; Prettify Symbols
+(use-package prog-mode
+  :straight nil
+  :hook (prog-mode . prettify-symbols-mode)
+  :init
+  (setq-default prettify-symbols-alist libra-prettify-symbols-alist)
+  (setq prettify-symbols-unprettify-at-point 'right-edge))
+
 ;; Lint tool
 (use-package flycheck
   :diminish
@@ -80,6 +90,10 @@
 (use-package yaml-mode
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'"  . yaml-mode)))
+
+(use-package editorconfig
+  :diminish
+  :hook (after-init . editorconfig-mode))
 
 ;; Projectile.
 (require 'init-projectile)

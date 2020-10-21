@@ -19,10 +19,7 @@
 ;; Explicitly set the prefered coding systems to avoid annoying prompt
 ;; from emacs (especially on Microsoft Windows)
 (prefer-coding-system 'utf-8)
-(if sys/win32p
-  (setq locale-coding-system 'gb18030)
-  (setq locale-coding-system 'utf-8))
-
+(setq locale-coding-system 'utf-8)
 
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -90,14 +87,6 @@
     (setq show-trailing-whitespace t)
     (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)))
 
-;; (use-package time
-;;   :unless (display-graphic-p)
-;;   :hook (after-init . display-time-mode)
-;;   :init (setq setq display-time-default-load-average nil
-;;               display-time-24hr-format t
-;;               display-time-day-and-date t))
-;; (display-time-mode t)
-
 ;; Large file
 (use-package so-long
   :hook (after-init . global-so-long-mode)
@@ -140,8 +129,8 @@
 ;; Fonts
 (when (display-graphic-p)
   ;; Set default font
-  (cl-loop for font in '("等距更纱黑体 SC" "SF Mono" "Hack" "Source Code Pro" "Fira Code"
-                         "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas")
+  (cl-loop for font in '("Source Code Pro" "Fira Code"
+                         "DejaVu Sans Mono" "Consolas")
            when (font-installed-p font)
            return (set-face-attribute 'default nil
                                       :font font
@@ -149,12 +138,12 @@
                                                     (t 110))))
 
   ;; Specify font for all unicode characters
-  (cl-loop for font in '("Symbola" "Symbol")
+  (cl-loop for font in '("Segoe UI Emoji" "Symbola" "Symbol")
            when (font-installed-p font)
            return(set-fontset-font t 'unicode font nil 'prepend))
 
   ;; Specify font for Chinese characters
-  (cl-loop for font in '("等距更纱黑体 SC" "WenQuanYi Micro Hei" "Microsoft Yahei")
+  (cl-loop for font in '("Sarasa Mono T TC" "WenQuanYi Micro Hei" "Microsoft Yahei")
            when (font-installed-p font)
            return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 
