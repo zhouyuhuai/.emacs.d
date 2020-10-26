@@ -48,6 +48,13 @@
       :hook (flycheck-mode . flycheck-pos-tip-mode)
       :config (setq flycheck-pos-tip-timeout 30))))
 
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :hook (after-init . yas-global-mode))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
+
 ;; Quickrun codes, including cpp. awesome!
 (use-package quickrun
   :bind ("C-c x" . quickrun)
@@ -103,6 +110,7 @@
 
 ;; TODO: require  language here
 (require 'init-csharp)
+(require 'init-go)
 
 (provide 'init-dev)
 
