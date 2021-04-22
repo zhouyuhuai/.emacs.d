@@ -32,13 +32,11 @@
 (modify-coding-system-alist 'process "*" 'utf-8)
 
 ;; Environment
-(when sys/linux-x-p
+(when (or sys/mac-x-p sys/linux-x-p)
   (use-package exec-path-from-shell
-    :init
-    (setq exec-path-from-shell-check-startup-files nil
-          exec-path-from-shell-variables '("PATH" "MANPATH")
-          exec-path-from-shell-arguments '("-l"))
-    (exec-path-from-shell-initialize)))
+  :init
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH"))
+  :hook (after-init . exec-path-from-shell-initialize)))
 
 ;; History
 (use-package saveplace

@@ -19,6 +19,14 @@
   (and (display-graphic-p) sys/linuxp)
   "Are we running on under X on a GNU/Linux system?")
 
+(defconst sys/macp
+  (eq system-type 'darwin)
+  "Are we running on a Mac System?")
+
+(defconst sys/mac-x-p
+  (and (display-graphic-p) sys/macp)
+  "Are we running under X on a Mac System?")
+
 
 (provide 'init-const)
 
