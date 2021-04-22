@@ -57,11 +57,11 @@
     "ss" 'swiper-isearch
     "sS" 'swiper-isearch-thing-at-point)
 
-  (general-create-definer libra-org-leader-def
+  (general-create-definer libra-local-leader-def
     :prefix "SPC l"
     :non-normal-prefix "M-m l")
 
-  (libra-org-leader-def
+  (libra-local-leader-def
     :states '(normal visual insert emacs)
     :keymaps 'org-mode-map
     "" '(:ignore t :wk "org")

@@ -111,6 +111,8 @@
 ;; TODO: require  language here
 (require 'init-csharp)
 (require 'init-go)
+(require ' init-python)
+
 
 (provide 'init-dev)
 
