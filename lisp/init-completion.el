@@ -69,16 +69,6 @@
   (setq ivy-rich-path-style 'abbrev)
   (ivy-rich-mode 1))
 
-;; Snails
-(when (display-graphic-p)
-  (use-package snails
-    :straight (:host github
-               :repo "manateelazycat/snails"
-               :branch "master")
-    :config
-    (defun snails-everywhere()
-      (interactive)
-      (snails '(snails-backend-everything)))))
 
 (provide 'init-completion)
 
